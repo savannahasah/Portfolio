@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>HTML Table.Asg.10</title>
+    <style>
+      /* "monthly" table CSS */
+      #monthlytable,
+      #monthlytable caption,
+      #monthlytable th,
+      #monthlytable td {
+        border:1px solid white;
+        border-collapse: collapse;
+        padding: 12px;
+      }
+      #monthlytable {
+        margin-bottom: 48px;
+      }
+
+      #monthlyColSpan {
+        background:#AED8E5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="monthlytable">
+     <caption>Monthly Bills</caption>
+     <colgroup>
+       <col id="monthlyColSpan" span="2">
+       <col>
+       <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Bill</th>
+          <th>April</th>
+          <th>May</th>
+          <th>June</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>phone</td>
+            <td>$120</td>
+            <td>$140</td>
+            <td>$140</td>
+          </tr>
+          <tr>
+            <td>gas</td>
+            <td>$90</td>
+            <td>$100</td>
+            <td>$150</td>
+          </tr>
+          <tr>
+            <td>food</td>
+            <td>$280</td>
+            <td>$280</td>
+            <td>$300</td>
+          </tr>
+          </tbody>
+        </table>
+      </body>
+    </html>
