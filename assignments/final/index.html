@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Green Foundation</title>
+  </head>
+  <style>
+
+
+    #nav {
+      background-color: #76BA1B;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #nav #navItems {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navItem {
+      position: relative;
+    }
+
+    .navItem:hover,
+    #navCtas a.navCta {
+      background-color: #30694b;
+      color: white;
+    }
+
+    .navItem:hover a {
+      color: white;
+    }
+
+    .navItem a,
+    #navCtas a.navCta {
+      display: inline-block;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    .navItem a {
+      color: black;
+    }
+
+    /* TODO: should be hidden by default */
+    .navDropdown {
+      background-color: #30694b
+      position: absolute;
+      visibility: hidden;;
+      position: absolute;
+      width: 200px;
+    }
+
+    /* TODO: need to reveal nav when javascript adds 'navOpen' class */
+    .navItem.navOpen .navDropdown {
+    }
+
+    .navDropdown a {
+      color: white;
+      display: block;
+    }
+
+    .navDropdown a + a {
+      padding-top: 0;
+    }
+    /* TODO: need to set grid-area for header */
+    #header {
+      /* TODO: fix image source url */
+      background-image: url("https://images.unsplash.com/photo-1497211419994-14ae40a3c7a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+      background-size: cover;
+      padding: 100px 100px;
+      text-align: center;
+    }
+
+    /* TODO: need to set grid-area for banner1 */
+    #bannerItem1 {
+      border-right: 3px solid #666666;
+    }
+
+    /* TODO: need to set grid-area for banner2 */
+    #bannerItem2 {
+    }
+
+    /* TODO: need to set grid-area for banner3 */
+    #bannerItem3 {
+      border-left: 3px solid #666666;
+    }
+
+    #bannerItem1,
+    #bannerItem2,
+    #bannerItem3 {
+      background: #76BA1B;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 24px 36px 24px;
+      text-align: center;
+    }
+
+    .bannerItem p {
+      flex: 1;
+    }
+
+    /* TODO: need to add hover behavior for links */
+    .bannerActions a {
+      background-color: #999999;
+      color: white;
+      display: inline-block;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    a.socialMediaLink {
+      background-color: #999999;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    a.socialMediaLink img {
+      width: 25px;
+    }
+
+    /* TODO: need to set grid-area for storefront */
+    #storefront {
+      background-color: white;
+      text-align: center;
+    }
+
+    /*
+      TODO: need to turn this into a flexbox container,
+      so we can render the shop cards in multiple rows
+    */
+    #shopGrid {
+      display: block;
+    }
+
+    /*
+      TODO: need to set a flexbox item property here
+      to limit the width/flex basis per card,
+      to configure how many cards fit per row
+    */
+    #shopGrid .shopItemCard {
+      background-color: #76BA1B;
+      margin-bottom: 24px;
+      margin-left: 400px;
+      margin-right:100px;
+      padding: 12px;
+
+
+    }
+
+    #shopGrid .shopItemCard .shopItemImage {
+      background-color: #76BA1B;
+      border: 5px solid #30694b;
+      display: block;
+      height: 50px;
+      width: 50%;
+
+    }
+
+    #shopGrid .shopItemCard .shopItemBadge {
+      background-color: #BBBBBB;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 12px;
+      margin: 12px 0;
+      padding: 4px;
+    }
+
+    /* TODO: need to set grid-area for blog */
+    #blog {
+      background-color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    #blog h2 {
+    margin-bottom: 36px;
+    }
+
+    #blog .blogPost {
+      align-items: center;
+      display: flex;
+      margin-bottom: 48px;
+    }
+
+    #blog .blogPost .blogPostImage {
+      background-color: #BBBBBB;
+      border: 4px solid #999999;
+      flex: 2;
+      height: 350px;
+    }
+
+    #blog .blogPost:nth-child(even) .blogPostImage {
+      border-radius: 72px 72px 0 72px;
+      margin-right: 48px;
+    }
+
+    #blog .blogPost:nth-child(odd) .blogPostImage {
+      border-radius: 72px 72px 72px 0;
+      margin-left: 48px;
+    }
+
+    #blog .blogPost .blogPostPreview {
+      flex: 1;
+      text-align: left;
+    }
+
+    #blog .blogPost:nth-child(even) .blogPostPreview {
+      margin-right: 48px;
+    }
+
+    #blog .blogPost:nth-child(odd) .blogPostPreview {
+      margin-left: 24px;
+    }
+
+    #blog .blogPost .blogPostPreview a {
+        color: #666666;
+    }
+
+    /* TODO: need to set grid-area for footer */
+    #footer {
+      background: #76BA1B;
+      border-right: 3px solid #666666;
+      padding: 48px 24px 24px 24px;
+    }
+
+    #footer #footerItems {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 200px;
+    }
+
+    #footer .footerItem {
+      margin-bottom: 24px;
+    }
+
+    #footer .footerItem a {
+      color: #666666;
+      display: block;
+      margin-left: 24px;
+    }
+
+    #footer .footerItem a:first-child {
+      margin-left: 0;
+    }
+
+    /* TODO: need to set grid-area for footerSocial */
+    #footerSocialMedia {
+      background: linear-gradient(to bottom, #BBBBBB, #999999);
+      padding: 24px;
+    }
+
+    /* TODO: need to set grid-area for copyright */
+    #copyright {
+      background-color: #666666;
+      color: white;
+      font-size: 12px;
+      grid-area: copyright;
+      padding: 24px;
+    }
+
+
+    /* This defines the styles for the mobile view */
+    @media screen and (max-width: 900px) {
+
+
+
+      /* TODO: change this flexbox's container direction to a column */
+      #nav {
+
+      }
+
+      /* TODO: change this flexbox's container direction to a column */
+      #nav #navItems {
+
+        text-align: center;
+        display: block;
+        padding: 12px 24px;
+      }
+
+      .navDropdown {
+        position: absolute;
+        visibility: hidden;
+      }
+
+
+      .navItem.navOpen .navDropdown {
+        visibility: hidden;
+      }
+
+      #navCtas a.navCta {
+        display: block;
+        text-align: center;
+      }
+
+      #header {
+        padding: 36px;
+      }
+
+      #header h1 {
+        font-size: 14px;
+      }
+
+      #header form {
+        text-align: center;
+      }
+
+      #header form label {
+        display: block;
+      }
+
+      #header form input {
+        display: block;
+        margin: 0 auto;
+      }
+      #shopGrid .shopItemCard .shopItemImage {
+        background-color: #BBBBBB;
+        border: 5px solid #30694b;
+        display: block;
+        height: 50px;
+        width: 10%;
+
+      }
+
+      #shopGrid .shopItemCard .shopItemBadge {
+
+        border-radius: 1px;
+        display: block;
+        font-size: 7px;
+        margin: px 0;
+        padding: 1px;
+      }
+
+      #blog {
+        background-color: white;
+        padding: 0px;
+        text-align: center;
+      }
+
+      #blog h2 {
+      margin-bottom: 0px;
+      }
+
+      #blog .blogPost {
+        align-items: center;
+        display:
+        margin-bottom:0px;
+      }
+
+      #blog .blogPost .blogPostImage {
+        background-color: #BBBBBB;
+        border: 4px solid #999999;
+        flex:0;
+        height: 100px;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostImage {
+        border-radius: 72px 72px 0 72px;
+        margin-right: 48px;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostImage {
+        border-radius: 0px;
+        margin-left: 48px;
+      }
+
+      #blog .blogPost .blogPostPreview {
+        flex: 1;
+        text-align: center;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostPreview {
+        margin-right: 48px;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostPreview {
+        margin-left:px;
+      }
+
+      #blog .blogPost .blogPostPreview a {
+          color: #666666;
+      }
+
+
+      #footer .footerItem {
+        display: block;
+        text-align: left;
+        font-size: 10px;
+      }
+
+      #blog {
+        background-color: white;
+        padding: 24px;
+        text-align: center;
+      }
+
+      #blog h2 {
+      margin-bottom: 36px;
+      }
+
+      #blog .blogPost {
+        align-items: center;
+        display: flex;
+        margin-bottom: 48px;
+      }
+
+      #blog .blogPost .blogPostImage {
+        background-color: #BBBBBB;
+        border: 4px solid #999999;
+        flex: 2;
+        height: 150px;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostImage {
+        border-radius: 72px 72px 0 72px;
+        margin-right: 48px;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostImage {
+        border-radius: 20px 20px 20px 0;
+        margin-left: 48px;
+      }
+
+      #blog .blogPost .blogPostPreview {
+        flex: 1;
+        text-align: left;
+      }
+
+      #blog .blogPost:nth-child(even) .blogPostPreview {
+        margin-right: 48px;
+      }
+
+      #blog .blogPost:nth-child(odd) .blogPostPreview {
+        margin-left: 24px;
+      }
+
+
+
+
+
+
+    }
+
+
+  </style>
+  <body>
+    <div id="pageLayoutGrid">
+
+      <nav>
+      <div id="nav">
+        <ul id="navItems">
+          <li class="navItem">
+            <a href="#" class="navLink logo">Green Foundation</a>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">About</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Mission and Vision</a>
+              <a href="#" class="navDropdownLink">History</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Projects</a>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">News</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Events Calendar</a>
+              <a href="#" class="navDropdownLink">Image Gallery</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Get Involved</a>
+            <div class="navDropdown">
+              <a href="#" class="navDropdownLink">Donate</a>
+              <a href="#" class="navDropdownLink">Online Store</a>
+              <a href="#" class="navDropdownLink">Volunteer</a>
+            </div>
+          </li>
+          <li class="navItem">
+            <a href="#" class="navLink">Contact Us</a>
+          </li>
+        </ul>
+        <!-- CTA is short for Call To Action -->
+        <div id="navCtas">
+          <a href="#" class="navCta">DONATE</a>
+        </div>
+      </div>
+     </nav>
+
+    <header>
+      <div id="header">
+        <div class="eyebrow">Planting the Seeds of the Future</div>
+        <h1 class="heroHeading">
+          Poverty and environmental degradation are intrinsically linked. By
+          healing the environment, we can heal lives as well.
+        </h1>
+
+        <form>
+          <div>
+            <label for="EmailId">Email Adress:</label>
+            <input type="text" id="EmailId" name="email">
+            <input type="submit">
+          </div>
+        </form>
+      </div>
+    </header>
+
+      <!-- Banner section of the grid -->
+      <div id="bannerItem1" class="bannerItem">
+        <h3>Get Started in Your Community</h3>
+        <p>
+          Curious about what you can do in your neighborhood? Download our
+          free eBook to find out.
+        </p>
+        <div class="bannerActions">
+          <a class="downloadButton" href="#">DOWNLOAD</a>
+        </div>
+      </div>
+      <div id="bannerItem2" class="bannerItem">
+        <h3>Take Part in our<br>Green Thumb Initiative</h3>
+        <p>
+          Community gardens are an excellent opportunity to provide for the
+          needy in your neighborhood, while also providing a chance to educate
+          young people about how food is grown.
+        </p>
+        <div class="bannerActions">
+          <a class="learnMoreButton" href="#">LEARN MORE</a>
+        </div>
+      </div>
+      <div id="bannerItem3" class="bannerItem">
+        <h3>Follow Us on Our<br>Social Media Accounts</h3>
+        <p>
+          Engage with us online!  We post at least once a day, and we'd love to
+          hear from you about how the Green Foundation has helped in your
+          community.
+        </p>
+        <div class="bannerActions">
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" alt="twitter" alt="twitter" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt="facebook" alt="facebook" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1200px-Instagram-Icon.png" alt="instagram" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Storefront section of the grid -->
+      <div class="shopItemCard">
+        <!-- TODO: fix image src -->
+        <img
+         class="shopItemImage"
+         alt="tshirt2"
+         style="height: 350px"
+         src="https://res.cloudinary.com/teepublic/image/private/s--lwCN6K9j--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,w_404/c_crop,g_north_west,h_626,w_470,x_-32,y_-28/g_north_west,u_upload:v1462829017:production:blanks:qe3008lhp5hquxmwp4a0,x_-427,y_-353/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1485368501/production/designs/1143136_1.jpg" />
+
+        <div class="shopItemBadge">TSHIRT</div>
+        <form>
+        <select>
+        <form class="shopItemSelection">
+          <select name="quantity">
+            <label for="quantity">quantity</label>
+            <select id="quantity" name="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </form>
+        </select>
+      </div>
+
+          <!-- TODO: change button text to say "Buy" or "Purchase" -->
+          <input type="submit">
+        </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img
+             class="shopItemImage"
+             alt="tshirt2"
+             style="height: 350px"
+             src="https://cdn10.bigcommerce.com/s-e6hs92zf/products/1398/images/3825/Earth-Science-Mens-T-Shirt__40620.1640285615.600.600.jpg?c=2" />
+
+            <div class="shopItemBadge">TSHIRT</div>
+            <form>
+            <select>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <label for="quantity">quantity</label>
+                <select id="quantity" name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </form>
+            </select>
+          </div>
+
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img
+             class="shopItemImage"
+             alt="tshirt2"
+             style="height: 350px"
+             src="https://ctl.s6img.com/society6/img/yG8LhSD1a9aKHaOkdY9RbhTDp4o/w_700/tshirts/men/greybg/black/~artwork,bg_FFFFFFFF,fw_3300,fh_5100,iw_3300,ih_5100/s6-original-art-uploads/society6/uploads/misc/5d363c9437d74c548e0ffafbcd74636f/~~/save-the-earth-sloth-tshirts.jpg" />
+
+            <div class="shopItemBadge">TSHIRT</div>
+            <form>
+            <select>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <label for="quantity">quantity</label>
+                <select id="quantity" name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </form>
+            </select>
+          </div>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img
+             class="shopItemImage"
+              alt="tshirt4"
+              style="height: 350px"
+              src="https://pimg.bucklecontent.com/images/products/72599FNT1350XX/NAT/f/3c44a1b2293da7fbdc3456c3bdebe0d2v3?quality=0.8&width=1425"
+            />
+
+              <form class="shopItemSelection">
+                <div class="shopItemBadge">TSHIRT</div>
+                <form>
+                <select>
+                <form class="shopItemSelection">
+                  <select name="quantity">
+                    <label for="quantity">quantity</label>
+                    <select id="quantity" name="quantity">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </form>
+                </select>
+              </div>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img
+            class="shopItemImage"
+            alt="mug1"
+            style="height: 300px"
+            src="https://render.fineartamerica.com/images/rendered/search/frontright/mug/images-medium-5/go-green-jelena-jovanovic.jpg?&targetx=151&targety=0&imagewidth=497&imageheight=333&modelwidth=800&modelheight=333&backgroundcolor=6A543A&orientation=0&producttype=coffeemug-11"
+
+            <div class="shopItemBadge">COFFEE MUG</div>
+            <form class="shopItemSelection">
+              <select>
+              <form class="shopItemSelection">
+                <select name="quantity">
+                  <label for="quantity">quantity</label>
+                  <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </form>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img
+            class="shopItemImage"
+            alt="mug2"
+            style="height: 300px"
+            src="https://ctl.s6img.com/society6/img/5j4LPgAKuetfQ31F3BCjsHenIH0/w_700/coffee-mugs/small/right/greybg/~artwork,fw_4602,fh_1997,fx_-1670,fy_-4203,iw_7500,ih_9000/s6-original-art-uploads/society6/uploads/misc/cc2fb7eef7e1471285c90e1435167a20/~~/go-green-leafy-green-mugs.jpg" />
+            <div class="shopItemBadge">COFFEE MUG</div>
+            <form class="shopItemSelection">
+              <select>
+              <form class="shopItemSelection">
+                <select name="quantity">
+                  <label for="quantity">quantity</label>
+                  <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </form>
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="seeds1" src="data:image/jpeg;base64,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" />
+            <div class="shopItemBadge">SEEDS</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <form class="shopItemSelection">
+                  <select name="quantity">
+                    <label for="quantity">quantity</label>
+                    <select id="quantity" name="quantity">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </form>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+          <div class="shopItemCard">
+            <!-- TODO: fix image src -->
+            <img class="shopItemImage" alt="seeds2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8J9wLbjSOSSmLK0sRDwPnWj0M14h_uwFLVw&usqp=CAU" />
+            <div class="shopItemBadge">SEEDS</div>
+            <form class="shopItemSelection">
+              <select name="quantity">
+                <form class="shopItemSelection">
+                  <select name="quantity">
+                    <label for="quantity">quantity</label>
+                    <select id="quantity" name="quantity">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </form>
+              </select>
+              <!-- TODO: change button text to say "Buy" or "Purchase" -->
+              <input type="submit">
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog section of grid -->
+      <div id="blog">
+        <h2>Check out our latest blog posts</h2>
+        <div class="blogPost">
+          <!-- TODO: fix image src -->
+          <img
+          src="https://images.unsplash.com/photo-1438109382753-8368e7e1e7cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+
+          class="blogPostImage" alt="happy plants" />
+          <div class="blogPostPreview">
+            <h3 class="blogPostPreviewTitle">
+              Will talking to plants help them grow?
+            </h3>
+            <p>
+              We've heard some pretty ridiculous urban (and rural) myths when it
+              comes to growing your crops.  But just because they sound silly
+              doesn't mean they aren't true.  So we decided to try them out
+              ourselves to find out just how...
+            </p>
+            <a href="#">Keep reading</a>
+          </div>
+        </div>
+        <div class="blogPost">
+          <div class="blogPostPreview">
+            <h3 class="blogPostPreviewTitle">
+              Arid field becomes radiant garden
+            </h3>
+            <p>
+              An empty barren field on the outskirts of a rural village in the
+              south had been a blight on the poor but otherwise lively town.
+              Fast forward six months, and see what a difference a little
+              irrigation made in the lives of these villagers...
+            </p>
+            <a href="#">Keep reading</a>
+          </div>
+          <!-- TODO: fix image src -->
+          <img src="https://images.unsplash.com/photo-1563281709-7af174759d98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" class="blogPostImage" alt="happy people" />
+        </div>
+      </div>
+
+      <!-- Footer section of grid -->
+      <div id="footer">
+        <div id="footerItems">
+          <div class="footerItem">
+            <a href="#" class="footerLink">Green Foundation</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">About</a>
+            <a href="#" class="footerLink">Mission and Vision</a>
+            <a href="#" class="footerLink">History</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Projects</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">News</a>
+            <a href="#" class="footerLink">Events Calendar</a>
+            <a href="#" class="footerLink">Image Gallery</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Get Involved</a>
+            <a href="#" class="footerLink">Donate</a>
+            <a href="#" class="footerLink">Online Store</a>
+            <a href="#" class="footerLink">Volunteer</a>
+          </div>
+          <div class="footerItem">
+            <a href="#" class="footerLink">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div id="footerSocialMedia">
+        <h3>Follow Us on Social Media</h3>
+        <div>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" alt="twitter" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" alt="facebook" />
+          </a>
+          <a class="socialMediaLink" href="#">
+            <!-- TODO: fix image src -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1200px-Instagram-Icon.png" alt="instagram" />
+          </a>
+        </div>
+      </div>
+      <div id="copyright">
+        <span>© 2022 The Green Foundation</span>
+        Terms of Use | Privacy Statement | Charitable Solicitation Disclosures
+        | Mobile Terms & Conditions | Title VI Notice of Nondiscrimination
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.navItem').hover(
+        function() {
+          // TODO: jQuery to add the 'navOpen' class to $(this) goes here
+        },
+        function() {
+          // TODO: jQuery to remove the 'navOpen' class to $(this) goes here
+        }
+      );
+    </script>
+  </body>
+</html>
