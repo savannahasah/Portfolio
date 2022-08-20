@@ -50,36 +50,32 @@
 }
 
  #barMenu {
-  list-style-type: circle;
+  list-style-type: square;
  }
 
- #myNavBar li a {
-   color: black;
-   text-decoration: none;
+  #myNavBar li a {
+    color: black;
+    text-decoration: none;
+  }
 
- }
+  #myNavBar ul {
 
- #myNavBar ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
 
-   list-style-type: none;
-   padding-inline-start: 0px;
- }
+  #myNavBar ul li {
+    display: inline-block;
+    padding: 12px 24px;
+  }
 
- #myNavBar ul li {
-   display: inline-block;
-   padding: 12px 24px;
- }
+  #myNavBar ul li:hover {
+    background: white;
+  }
 
- #myNavBar ul li:hover {
-   background: white;
- }
-
- #myNavBar {
-   text-align: center;
- }
- * {
-   box-sizing: border-box;
- }
+  #myNavBar {
+    text-align: center;
+  }
 
 .endtext {
   margin-bottom: 120px;
@@ -90,20 +86,8 @@
 </style>
 
 <body>
-  
-  <ul>
-    <li><a href="home.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="her.html">Her</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="connect.html">Connect</a></li>
-  </ul>
-
 
 <div class="welcomecontainer" >
-  <nav id="myNavBar">
-
-  </nav>
   <header>
     <h1 class="introheader">
            HOW LOVELY, TO RUN ACROSS YOU HERE
@@ -150,6 +134,16 @@
     </div>
 
 
+        <nav id="myNavBar">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="her.html">Her</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="connect.html">Connect</a></li>
+          </ul>
+
+        </nav>
 
   </body>
 </html>
